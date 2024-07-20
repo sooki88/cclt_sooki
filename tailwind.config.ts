@@ -1,3 +1,4 @@
+import { fonts } from "./tailwind.plugin";
 import type { Config } from "tailwindcss";
 
 const config: Config = {
@@ -6,12 +7,15 @@ const config: Config = {
   prefix: "",
   theme: {
     extend: {
+      fontFamily: {
+        sans: ["Inter", "sans-serif"],
+      },
       colors: {
         background: "#1E1E1E",
         main: "#F49D1A",
         sub: {
           bright: "#3A3F77",
-          medium: "#FD68B3",
+          medium: "#404258",
           dark: "#242530",
         },
         neutral: {
@@ -25,6 +29,7 @@ const config: Config = {
       },
     },
   },
+  plugins: [fonts],
 };
 
 export default config;

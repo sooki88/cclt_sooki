@@ -9,6 +9,9 @@ module.exports = {
   },
   resolve: {
     extensions: [".ts", ".tsx", ".js"],
+    alias: {
+      "@": path.resolve(__dirname, "."),
+    },
   },
   module: {
     rules: [
@@ -25,7 +28,7 @@ module.exports = {
     ],
   },
   devServer: {
-    static: path.join(__dirname, "dist"),
+    static: path.join(__dirname, "public"),
     compress: true,
     port: 3000,
   },

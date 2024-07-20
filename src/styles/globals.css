@@ -31,3 +31,10 @@
     -webkit-box-shadow: 0 0 0px 1000px #fff inset;
   }
 }
+
+@layer utilities {
+  .font-stretch {
+    display: block;
+    transform: scaleX(1.6);
+  }
+}

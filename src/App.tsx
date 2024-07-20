@@ -1,8 +1,10 @@
-import React from "react"
+import React from "react";
+import Calculator from "./components/Calculator";
 
-function App (){
-  return(
-    <div>하이</div>
-  )
+export default function App() {
+  return (
+    <main className='flex items-center justify-center w-screen h-screen min-h-[367px]'>
+      <Calculator />
+    </main>
+  );
 }
-export default App
