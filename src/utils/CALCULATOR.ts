@@ -12,5 +12,10 @@ export const OPERATOR_MAP: { [key: string]: string } = {
 };
 
 export const OPERATOR_KEYBOARD_MAP = Object.fromEntries(
-  Object.entries(OPERATOR_MAP).map(([key, value]) => [value, key]),
+  Object.entries(OPERATOR_MAP).map(([key, value]) => {
+    if (value === "**") {
+      return [key, key];
+    }
+    return [value, key];
+  }),
 );
