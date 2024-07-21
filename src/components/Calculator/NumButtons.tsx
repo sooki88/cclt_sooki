@@ -8,6 +8,7 @@ export default function NumButtons() {
   const { clicked, setClicked, setErrMessage } = useCalcContext();
 
   const lastClicked = clicked[clicked.length - 1];
+  const secondLastClicked = clicked.length > 1 ? clicked[clicked.length - 2] : null;
 
   const handleNumClick = (num: number | string) => {
     setClicked((prev) => {
@@ -54,7 +55,7 @@ export default function NumButtons() {
           key={num}
           fontStyle='font-small'
           bgColor='navy'
-          clicked={lastClicked === num}
+          clicked={!secondLastClicked && lastClicked === num}
           onClick={() => handleNumClick(num)}>
           {num}
         </Button>
