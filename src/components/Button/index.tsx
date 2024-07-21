@@ -1,7 +1,7 @@
 import React, { ReactNode } from "react";
 
 interface ButtonProps {
-  fontStyle: "font-small" | "font-base" | "font-large";
+  fontStyle: "font-tiny" | "font-small" | "font-base" | "font-large";
   bgColor: "main" | "gray" | "navy";
   hasImage?: boolean;
   className?: string;
