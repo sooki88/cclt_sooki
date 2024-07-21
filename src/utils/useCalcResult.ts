@@ -1,4 +1,5 @@
 import { CALC_OPERATORS, OPERATOR_MAP } from "./CALCULATOR";
+import { ERROR_MESSAGES } from "./ERROR_MESSAGES";
 
 export function useCalcResult(arr: (string | number)[]) {
   let expression = "";
@@ -15,7 +16,7 @@ export function useCalcResult(arr: (string | number)[]) {
     const result = eval(expression);
     return result;
   } catch (error) {
-    console.error("useCalcResult에서 계산 중 에러가 발생했어요.");
+    console.error(ERROR_MESSAGES.USECALCRESULT);
     return null;
   }
 }

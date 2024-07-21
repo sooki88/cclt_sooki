@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Button from "../Button";
 import { CALC_NUMBERS, CALC_OPERATORS } from "@/src/utils/CALCULATOR";
 import { useCalcContext } from "@/src/context/CalcContext";
@@ -26,6 +26,26 @@ export default function NumButtons() {
   const handleDeleteClick = () => {
     setClicked((prev) => prev.slice(0, -1));
   };
+
+  const handleKeyPress = (e: KeyboardEvent) => {
+    const key = e.key;
+
+    if (key === "Backspace") {
+      handleDeleteClick();
+    } else if (!isNaN(Number(key))) {
+      handleNumClick(Number(key));
+    } else if (key === ".") {
+      handleNumClick(key);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("keydown", handleKeyPress);
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyPress);
+    };
+  }, []);
 
   return (
     <div className='grid grid-cols-3 w-[225px] gap-[15px] flex-wrap'>
