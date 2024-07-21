@@ -23,6 +23,11 @@ const config: Config = {
           200: "#B2B2B2",
           300: "#000",
         },
+        overlay: "rgba(0, 0, 0, 0.5)",
+      },
+      zIndex: {
+        default: "1",
+        modal: "500",
       },
       dropShadow: {
         default: "0px 4px 4px 0px rgba(0, 0, 0, 0.4)",

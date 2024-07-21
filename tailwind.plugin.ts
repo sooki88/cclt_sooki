@@ -17,5 +17,10 @@ export const fonts = plugin(({ addUtilities }) => {
       lineHeight: "29.05px",
       fontWeight: "400",
     },
+    ".font-tiny": {
+      fontSize: "16px",
+      lineHeight: "19.2px",
+      fontWeight: "400",
+    },
   });
 });
