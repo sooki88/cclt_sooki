@@ -55,7 +55,7 @@ export default function NumButtons() {
           key={num}
           fontStyle='font-small'
           bgColor='navy'
-          clicked={!secondLastClicked && lastClicked === num}
+          clicked={secondLastClicked !== "=" && lastClicked === num}
           onClick={() => handleNumClick(num)}>
           {num}
         </Button>
