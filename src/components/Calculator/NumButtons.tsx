@@ -5,12 +5,12 @@ import { useCalcContext } from "@/src/context/CalcContext";
 import { ERROR_MESSAGES } from "@/src/utils/ERROR_MESSAGES";
 
 export default function NumButtons() {
-  const { setClicked, setErrMessage } = useCalcContext();
+  const { clicked, setClicked, setErrMessage } = useCalcContext();
+
+  const lastClicked = clicked[clicked.length - 1];
 
   const handleNumClick = (num: number | string) => {
     setClicked((prev) => {
-      const lastClicked = prev[prev.length - 1];
-
       if (lastClicked === "." && typeof num !== "number") return prev;
       if (lastClicked === "." && num === ".") return prev;
       if (CALC_OPERATORS.includes(String(lastClicked)) && num === ".") return prev;
@@ -50,7 +50,12 @@ export default function NumButtons() {
   return (
     <div className='grid grid-cols-3 w-[225px] gap-[15px] flex-wrap'>
       {CALC_NUMBERS.map((num) => (
-        <Button key={num} fontStyle='font-small' bgColor='navy' onClick={() => handleNumClick(num)}>
+        <Button
+          key={num}
+          fontStyle='font-small'
+          bgColor='navy'
+          clicked={lastClicked === num}
+          onClick={() => handleNumClick(num)}>
           {num}
         </Button>
       ))}
